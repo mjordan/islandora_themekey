@@ -38,5 +38,3 @@ function islandora_themekey_validator_ismemberofcollection($rule) {
 
   return $errors;
 }
-
-
