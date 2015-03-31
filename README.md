@@ -1,8 +1,6 @@
 # Islandora Themekey
 
-Provides [Themekey](https://dupal.org/project/themekey) theme-switching rules for Islandora objects. In a nutshell, this module will change your site's theme based on attributes of Islandora objects. Currently, only rules based on Islandora object collection membership are supported. You can use the 'drupal:path' property to switch the theme when viewing a particular Islandora object, such as a collection.
-
-Note that Islandora objects that are in multiple collections may not trigger a rule, since only the first collection that an object is in is inspected. This limitation will be resolved in a future version of this module.
+Provides [Themekey](https://dupal.org/project/themekey) theme-switching rules for Islandora objects. In a nutshell, this module will change your site's theme based on attributes of Islandora objects. Currently, only rules based on Islandora object collection membership are supported. Supports membership in multiple collections.
 
 ## Requirements
 
@@ -15,7 +13,9 @@ Install as usual, see [this](https://drupal.org/documentation/install/modules-th
 
 ## Usage
 
-Install and configure. To create a rule based on Islandora collection membership, go to Admin > Configuration > User Interface > Themekey and select 'islandora:ismemberofcollection' in the rule properties list, and then select either the '=' or '!' operator.
+Install and configure. To create a rule based on Islandora collection membership, go to Admin > Configuration > User Interface > Themekey and select 'islandora:ismemberofcollection' in the rule properties list, and then select either the '*' or '!*' operator.
+
+Use the 'drupal:path' property to switch the theme when viewing a specific Islandora object, such as a collection.
 
 ## Troubleshooting/issues/feedback
 

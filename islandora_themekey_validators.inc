@@ -12,18 +12,18 @@ function islandora_themekey_validator_ismemberofcollection($rule) {
   $errors = array();
 
   switch ($rule['operator']) {
-    case '*':
-    case '!*':
+    case '=':
+    case '!':
     case '<':
     case '>':
     case '>=':
     case '~':
     case '!~':
-      $errors['operator'] = t('The only possible operators are "=" and "!"');
+      $errors['operator'] = t('The only valid operators are "*", and "!*"');
       break;
 
-    case '=':
-    case '!':
+    case '*':
+    case '!*':
       if (!preg_match('/:/', $rule['value'])) {
         $errors['value'] = t('Collection PID must contain a :');
       }
