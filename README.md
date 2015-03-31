@@ -13,7 +13,7 @@ Install as usual, see [this](https://drupal.org/documentation/install/modules-th
 
 ## Usage
 
-Install and configure. To create a rule based on Islandora collection membership, go to Admin > Configuration > User Interface > Themekey and select 'islandora:ismemberofcollection' in the rule properties list, and then select either the '*' or '!*' operator.
+Install and configure. To create a rule based on Islandora collection membership, go to Admin > Configuration > User Interface > Themekey and select 'islandora:ismemberofcollection' in the rule properties list, and then select either the '\*' or '!\*' operator.
 
 Use the 'drupal:path' property to switch the theme when viewing a specific Islandora object, such as a collection.
 
