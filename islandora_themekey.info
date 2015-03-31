@@ -2,4 +2,5 @@ name = "Islandora ThemeKey"
 description = "Map themes to Islandora object properties."
 core = 7.x
 package = Islandora Tools
+dependencies[] = islandora 
 dependencies[] = themekey
