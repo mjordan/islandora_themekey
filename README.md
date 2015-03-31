@@ -15,7 +15,7 @@ Install as usual, see [this](https://drupal.org/documentation/install/modules-th
 
 ## Usage
 
-Install and configure. To create a context, go to Admin > Configuration > User Interface > Themekey and add a theme switching rule. 
+Install and configure. To create a rule based on Islandora collection membership, go to Admin > Configuration > User Interface > Themekey and select 'islandora:ismemberofcollection' in the rule properties list, and then select either the '=' or '!' operator.
 
 ## Troubleshooting/issues/feedback
 
