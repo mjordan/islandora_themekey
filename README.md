@@ -1,6 +1,6 @@
 # Islandora Themekey
 
-Provides [Themekey](https://dupal.org/project/themekey) theme-switching rules for Islandora objects. In a nutshell, this module will change your site's theme based on attributes of Islandora objects. Currently, only rules based on Islandora object collection membership are supported. Supports membership in multiple collections. Additional use cases are welcome.
+Provides [Themekey](https://www.drupal.org/project/themekey) theme-switching rules for Islandora objects. In a nutshell, this module will change your site's theme based on attributes of Islandora objects. Currently, only rules based on Islandora object collection membership are supported. Supports membership in multiple collections. Additional use cases are welcome.
 
 ## Requirements
 
