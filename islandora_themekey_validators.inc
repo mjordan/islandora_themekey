@@ -12,6 +12,8 @@ function islandora_themekey_validator_ismemberofcollection($rule) {
   $errors = array();
 
   switch ($rule['operator']) {
+    case '=':
+    case '!':
     case '*':
     case '!*':
       if (!preg_match('/:/', $rule['value'])) {
@@ -20,7 +22,7 @@ function islandora_themekey_validator_ismemberofcollection($rule) {
       break;
 
     default:
-      $errors['operator'] = t('The only valid operators are "*", and "!*"');
+      $errors['operator'] = t('The only valid operators are "=", "!", "*", and "!*"');
       break;
   }
 

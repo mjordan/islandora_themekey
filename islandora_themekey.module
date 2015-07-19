@@ -31,7 +31,7 @@ function islandora_themekey_themekey_global() {
     $pid = arg(2);
     if ($islandora_object = islandora_object_load($pid)) {
       $collections = $islandora_object->relationships->get(FEDORA_RELS_EXT_URI, 'isMemberOfCollection');
-      // islandora:root will be a member of 0 collections, so we need to
+      // The root collection PID will be a member of 0 collections, so we need to
       // check for it.
       if (count($collections) > 0) {
         // We need to check against an array (and restrict valid operators
