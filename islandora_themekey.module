@@ -16,6 +16,12 @@ function islandora_themekey_themekey_properties() {
     'file' => 'islandora_themekey_validators.inc',
     'page cache' => THEMEKEY_PAGECACHE_SUPPORTED,
   );
+  $attributes['islandora:hascontentmodel'] = array(
+    'description' => t('Islandora object has content model'),
+    'validator' => 'islandora_themekey_validator_hascontentmodel',
+    'file' => 'islandora_themekey_validators.inc',
+    'page cache' => THEMEKEY_PAGECACHE_SUPPORTED,
+  );
   $attributes['islandora:hasnamespace'] = array(
     'description' => t('Islandora object has namespace'),
     'validator' => 'islandora_themekey_validator_hasnamespace',
@@ -48,6 +54,14 @@ function islandora_themekey_themekey_global() {
           $collection_pids[] = $collection['object']['value'];
         }
         $parameters['islandora:ismemberofcollection'] = $collection_pids;
+      }
+    }
+
+    // islandora:hascontentmodel property.
+    if ($islandora_object) {
+      $object_cmodel_pids = $islandora_object->models;
+      if (count($object_cmodel_pids) > 0) {
+        $parameters['islandora:hascontentmodel'] = $object_cmodel_pids;
       }
     }
 
