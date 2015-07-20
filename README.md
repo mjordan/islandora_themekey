@@ -1,6 +1,6 @@
 # Islandora Themekey
 
-Provides [Themekey](https://www.drupal.org/project/themekey) theme-switching rules for Islandora objects. In a nutshell, this module will change your site's theme based on attributes of Islandora objects. Rules based on the following attributes of Islandora objects are supported:
+Provides [ThemeKey](https://www.drupal.org/project/themekey) theme-switching rules for Islandora objects. In a nutshell, this module will change your site's theme based on attributes of Islandora objects. Rules based on the following attributes of Islandora objects are supported:
 
 * collection membership (using equals, not equals, contains, and not contains operators)
 * namespace (using equals, not equals, contains, not contains, regular expression, and not regular expression operators)
@@ -8,7 +8,7 @@ Provides [Themekey](https://www.drupal.org/project/themekey) theme-switching rul
 
 Be aware that if an object is a member of multiple collections that are used in ThemeKey rules, the first rule in the theme switching chain will apply.
 
-> Note that on July 19, 2015, I changed the condition name of ismemberofcollection to is_member_of_collection to improve readibility in the long list of conditions. If you update the module from a version installed prior to that date, you will also need to update any rules you created prior to the change so that they use the new condition name (is_member_of_collection). This change does not affect sites that install the module for the first time afte July 19. I apologize for this backward compatibility breaking change but now that Islandora ThemeKey supports multiple conditions, I thought it was worth making their names more readable before we add any more.
+> Note that on July 19, 2015, I changed the condition name of ismemberofcollection to is_member_of_collection to improve readibility in the long list of conditions. If you update the module from a version installed prior to that date, you will also need to update any rules you created prior to the change so that they use the new condition name (is_member_of_collection). This change does not affect sites that install the module for the first time afte July 19. I apologize for this backward compatibility breaking change but now that Islandora ThemeKey supports multiple conditions, I thought it was worth making their names more readable before we add any more. If you update the module, be sure to clear your Drupal cache, e.g., `drush cc all`.
 
 
 ## Requirements
