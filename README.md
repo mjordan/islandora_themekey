@@ -5,7 +5,8 @@ Provides [Themekey](https://www.drupal.org/project/themekey) theme-switching rul
 * collection membership (using equals, not equals, contains, and not contains operators)
 * namespace (using equals, not equals, contains, not contains, regular expression, and not regular expression operators)
 
-Be aware that rules using collection membership [do not work with paged content](https://github.com/mjordan/islandora_themekey/issues/4).
+Be aware that rules using collection membership [do not work with paged content](https://github.com/mjordan/islandora_themekey/issues/4). Also, if an object is a member of multiple collections that are used in ThemeKey rules, the first rule in the theme switching chain will apply.
+
 
 ## Requirements
 

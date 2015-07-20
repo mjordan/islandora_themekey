@@ -40,11 +40,9 @@ function islandora_themekey_themekey_global() {
     // islandora:ismemberofcollection property.
     if ($islandora_object) {
       $collections = $islandora_object->relationships->get(FEDORA_RELS_EXT_URI, 'isMemberOfCollection');
-      // The root collection PID will be a member of 0 collections, so we need to
-      // check for it.
+      // The root collection PID will be a member of 0 collections, so we need
+      // to check for it.
       if (count($collections) > 0) {
-        // We need to check against an array (and restrict valid operators
-        // to * and !*) to support membership in multiple collections.
         $collection_pids = array();
         foreach ($collections as $collection) {
           $collection_pids[] = $collection['object']['value'];
@@ -58,7 +56,6 @@ function islandora_themekey_themekey_global() {
       $namespace = substr($pid, 0, strpos($pid, ':'));
       $parameters['islandora:hasnamespace'] = $namespace;
     }
-
 
   }
   return $parameters;
