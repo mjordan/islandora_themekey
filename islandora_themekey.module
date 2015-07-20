@@ -10,19 +10,19 @@
  */
 function islandora_themekey_themekey_properties() {
   $attributes = array();
-  $attributes['islandora:ismemberofcollection'] = array(
+  $attributes['islandora:is_member_of_collection'] = array(
     'description' => t('Islandora object is member of collection'),
     'validator' => 'islandora_themekey_validator_ismemberofcollection',
     'file' => 'islandora_themekey_validators.inc',
     'page cache' => THEMEKEY_PAGECACHE_SUPPORTED,
   );
-  $attributes['islandora:hascontentmodel'] = array(
+  $attributes['islandora:has_content_model'] = array(
     'description' => t('Islandora object has content model'),
     'validator' => 'islandora_themekey_validator_hascontentmodel',
     'file' => 'islandora_themekey_validators.inc',
     'page cache' => THEMEKEY_PAGECACHE_SUPPORTED,
   );
-  $attributes['islandora:hasnamespace'] = array(
+  $attributes['islandora:has_namespace'] = array(
     'description' => t('Islandora object has namespace'),
     'validator' => 'islandora_themekey_validator_hasnamespace',
     'file' => 'islandora_themekey_validators.inc',
@@ -53,7 +53,7 @@ function islandora_themekey_themekey_global() {
         foreach ($collections as $collection) {
           $collection_pids[] = $collection['object']['value'];
         }
-        $parameters['islandora:ismemberofcollection'] = $collection_pids;
+        $parameters['islandora:is_member_of_collection'] = $collection_pids;
       }
     }
 
@@ -61,14 +61,14 @@ function islandora_themekey_themekey_global() {
     if ($islandora_object) {
       $object_cmodel_pids = $islandora_object->models;
       if (count($object_cmodel_pids) > 0) {
-        $parameters['islandora:hascontentmodel'] = $object_cmodel_pids;
+        $parameters['islandora:has_content_model'] = $object_cmodel_pids;
       }
     }
 
     // islandora:hasnamespace property.
     if ($islandora_object) {
       $namespace = substr($pid, 0, strpos($pid, ':'));
-      $parameters['islandora:hasnamespace'] = $namespace;
+      $parameters['islandora:has_namespace'] = $namespace;
     }
 
   }
