@@ -8,6 +8,8 @@ Provides [Themekey](https://www.drupal.org/project/themekey) theme-switching rul
 
 Be aware that rules using collection membership [do not work with paged content](https://github.com/mjordan/islandora_themekey/issues/4). Also, if an object is a member of multiple collections that are used in ThemeKey rules, the first rule in the theme switching chain will apply.
 
+Note that on July 19, 2015, I changed the condition name of ismemberofcollection to is_member_of_collection to improve readibility in the long list of conditions. You will need to update any rules you created prior to the change to use the new condition name (is_member_of_collection). I apologize for this backward compatibility breaking change but now that Islandora ThemeKey supports multiple conditions, I thought it was worth making their names more readable.
+
 
 ## Requirements
 
