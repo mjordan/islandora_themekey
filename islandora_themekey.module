@@ -11,19 +11,19 @@
 function islandora_themekey_themekey_properties() {
   $attributes = array();
   $attributes['islandora:is_member_of_collection'] = array(
-    'description' => t('Islandora object is member of collection'),
+    'description' => t('Islandora object is member of the specified collection; for example, "islandora:bookCollection".'),
     'validator' => 'islandora_themekey_validator_ismemberofcollection',
     'file' => 'islandora_themekey_validators.inc',
     'page cache' => THEMEKEY_PAGECACHE_SUPPORTED,
   );
   $attributes['islandora:has_content_model'] = array(
-    'description' => t('Islandora object has content model'),
+    'description' => t('Islandora object has the specified content model; for example, "islandora:sp_large_image_cmodel".'),
     'validator' => 'islandora_themekey_validator_hascontentmodel',
     'file' => 'islandora_themekey_validators.inc',
     'page cache' => THEMEKEY_PAGECACHE_SUPPORTED,
   );
   $attributes['islandora:has_namespace'] = array(
-    'description' => t('Islandora object has namespace'),
+    'description' => t('Islandora object has the specified namespace; for example, "newcanadian".'),
     'validator' => 'islandora_themekey_validator_hasnamespace',
     'file' => 'islandora_themekey_validators.inc',
     'page cache' => THEMEKEY_PAGECACHE_SUPPORTED,
