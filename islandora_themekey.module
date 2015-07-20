@@ -43,7 +43,7 @@ function islandora_themekey_themekey_global() {
     $pid = arg(2);
     $islandora_object = islandora_object_load($pid);
 
-    // islandora:ismemberofcollection property.
+    // islandora:is_member_of_collection property.
     if ($islandora_object) {
       $collections = $islandora_object->relationships->get(FEDORA_RELS_EXT_URI, 'isMemberOfCollection');
       // The root collection PID will be a member of 0 collections, so we need
@@ -57,7 +57,7 @@ function islandora_themekey_themekey_global() {
       }
     }
 
-    // islandora:hascontentmodel property.
+    // islandora:has_content_model property.
     if ($islandora_object) {
       $object_cmodel_pids = $islandora_object->models;
       if (count($object_cmodel_pids) > 0) {
@@ -65,7 +65,7 @@ function islandora_themekey_themekey_global() {
       }
     }
 
-    // islandora:hasnamespace property.
+    // islandora:has_namespace property.
     if ($islandora_object) {
       $namespace = substr($pid, 0, strpos($pid, ':'));
       $parameters['islandora:has_namespace'] = $namespace;
