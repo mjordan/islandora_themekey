@@ -6,7 +6,7 @@
  */
 
 /**
- * Validates a Theme Switching Rule.
+ * Validates the ismemberofcollection Theme Switching Rule.
  */
 function islandora_themekey_validator_ismemberofcollection($rule) {
   $errors = array();
@@ -23,6 +23,32 @@ function islandora_themekey_validator_ismemberofcollection($rule) {
 
     default:
       $errors['operator'] = t('The only valid operators are "=", "!", "*", and "!*"');
+      break;
+  }
+
+  return $errors;
+}
+
+/**
+ * Validates the hasnamespace Theme Switching Rule.
+ */
+function islandora_themekey_validator_hasnamespace($rule) {
+  $errors = array();
+
+  switch ($rule['operator']) {
+    case '=':
+    case '!':
+    case '*':
+    case '!*':
+    case '~':
+    case '!~':
+      if (!strlen($rule['value'])) {
+        $errors['value'] = t('Namespace must be longer than 0 characters');
+      }
+      break;
+
+    default:
+      $errors['operator'] = t('The only valid operators are "=", "!", "*", "!*", "~", and "!~"');
       break;
   }
 
