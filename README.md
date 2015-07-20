@@ -14,7 +14,7 @@ Be aware that if an object is a member of multiple collections that are used in 
 ## Requirements
 
 * [Islandora](https://github.com/Islandora/islandora)
-* [Themekey](https://dupal.org/project/themekey)
+* [ThemeKey](https://dupal.org/project/themekey)
 
 ## Installation
 
@@ -24,7 +24,7 @@ Install as usual, see [this](https://drupal.org/documentation/install/modules-th
 
 To create a theme switching rule,
 
-1. go to Admin > Configuration > User Interface > Themekey
+1. go to Admin > Configuration > User Interface > ThemeKey
 2. select one of the properties starting with 'islandora' in the rule properties list
 3. select an operator
 4. enter the PID of the collection or content model, or the namespace
