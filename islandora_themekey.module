@@ -55,6 +55,41 @@ function islandora_themekey_themekey_global() {
         }
         $parameters['islandora:is_member_of_collection'] = $collection_pids;
       }
+      else {
+        // If the object is a book page or a newspaper issue, query the RI
+        // to get its ancestor collection.
+        $object_cmodel_pids = $islandora_object->models;
+        if ($object_cmodel_pids[0] == 'islandora:newspaperIssueCModel'
+          || $object_cmodel_pids[0] == 'islandora:pageCModel') {
+          $query = <<<EOQ
+            select ?collection from <#ri> where {
+              # Get the collection that book pages and newspaper issues belong to.
+              <info:fedora/$pid> <fedora-rels-ext:isMemberOf> ?parent .
+              ?parent <fedora-rels-ext:isMemberOfCollection> ?collection .
+            }
+EOQ;
+          $connection = islandora_get_tuque_connection();
+          $results = $connection->repository->ri->sparqlQuery($query, 1);
+          $collection_pid = $results[0]['collection']['value'];
+          $parameters['islandora:is_member_of_collection'] = array($collection_pid);
+        }
+        // If the object is a newspaper page, query the RI to get the
+        // its ancestor collection.
+        if ($object_cmodel_pids[0] == 'islandora:newspaperPageCModel') {
+          $query = <<<EOQ
+            select ?collection from <#ri> where {
+              # Get the collection that newspaper pages belong to.
+              <info:fedora/$pid> <fedora-rels-ext:isMemberOf> ?issue .
+              ?issue <fedora-rels-ext:isMemberOf> ?newspaper .
+              ?newspaper <fedora-rels-ext:isMemberOfCollection> ?collection .
+            }
+EOQ;
+          $connection = islandora_get_tuque_connection();
+          $results = $connection->repository->ri->sparqlQuery($query, 1);
+          $collection_pid = $results[0]['collection']['value'];
+          $parameters['islandora:is_member_of_collection'] = array($collection_pid);
+        }
+      }
     }
 
     // islandora:has_content_model property.
