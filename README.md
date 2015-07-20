@@ -1,4 +1,4 @@
-# Islandora Themekey
+# Islandora ThemeKey
 
 Provides [ThemeKey](https://www.drupal.org/project/themekey) theme-switching rules for Islandora objects. In a nutshell, this module will change your site's theme based on attributes of Islandora objects. Rules based on the following attributes of Islandora objects are supported:
 
