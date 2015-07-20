@@ -28,6 +28,7 @@ To create a theme switching rule,
 2. select one of the properties starting with 'islandora' in the rule properties list
 3. select an operator
 4. enter the PID of the collection or content model, or the namespace
+5. choose the theme you want to be active if the property is true
 
 Use the 'drupal:path' property to switch the theme when viewing a specific Islandora object, such as a collection.
 
