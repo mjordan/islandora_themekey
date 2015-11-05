@@ -11,10 +11,9 @@
  * Inspects the current object and its child pages, if any, to determine
  * what collection they are part of.
  *
- * @return null|string
+ * @return null|array
  */
 function islandora_themekey_is_member_of_collection() {
-  dd('Hi there');
   $parameters = array();
   // Get the PID, and if it appears to be an alias, get the
   // corrsponding PID.
@@ -26,7 +25,6 @@ function islandora_themekey_is_member_of_collection() {
       $pid = drupal_get_normal_path(current_path());
     }
     $islandora_object = islandora_object_load($pid);
-    dd($pid, 'PID');
 
     // islandora:is_member_of_collection property.
     if ($islandora_object) {
@@ -38,7 +36,7 @@ function islandora_themekey_is_member_of_collection() {
         foreach ($collections as $collection) {
           $collection_pids[] = $collection['object']['value'];
         }
-        // $parameters['islandora:is_member_of_collection'] = $collection_pids;
+        return $collection_pids;
       }
       else {
         // If the object is a book page or a newspaper issue, query the RI
@@ -56,7 +54,7 @@ EOQ;
           $connection = islandora_get_tuque_connection();
           $results = $connection->repository->ri->sparqlQuery($query, 1);
           $collection_pid = $results[0]['collection']['value'];
-          // $parameters['islandora:is_member_of_collection'] = array($collection_pid);
+          return array($collection_pid);
         }
         // If the object is a newspaper page, query the RI to get the
         // its ancestor collection.
@@ -72,11 +70,10 @@ EOQ;
           $connection = islandora_get_tuque_connection();
           $results = $connection->repository->ri->sparqlQuery($query, 1);
           $collection_pid = $results[0]['collection']['value'];
-          // $parameters['islandora:is_member_of_collection'] = array($collection_pid);
+          return array($collection_pid);
         }
       }
     }
   }
-  // return $parameters;
-  return array($collection_pid);
+  return NULL;
 }
