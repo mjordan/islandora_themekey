@@ -11,7 +11,8 @@
  * Inspects the current object and its child pages, if any, to determine
  * what collection they are part of.
  *
- * @return null|array
+ * @return array
+ *   List of collection PIDs.
  */
 function islandora_themekey_is_member_of_collection() {
   $parameters = array();

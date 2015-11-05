@@ -29,7 +29,7 @@ function islandora_themekey_themekey_properties() {
     'page cache' => THEMEKEY_PAGECACHE_SUPPORTED,
   );
 
-  // Mapping functions
+  // Mapping functions.
   $maps = array();
 
   $maps[] = array(
