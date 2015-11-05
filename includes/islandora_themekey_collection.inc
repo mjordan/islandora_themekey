@@ -27,12 +27,12 @@ function islandora_themekey_is_member_of_collection() {
     $islandora_object = islandora_object_load($pid);
 
     // islandora:is_member_of_collection property.
+    $collection_pids = array();
     if ($islandora_object) {
       $collections = $islandora_object->relationships->get(FEDORA_RELS_EXT_URI, 'isMemberOfCollection');
       // The root collection PID will be a member of 0 collections, so we need
       // to check for it.
       if (count($collections) > 0) {
-        $collection_pids = array();
         foreach ($collections as $collection) {
           $collection_pids[] = $collection['object']['value'];
         }
@@ -53,8 +53,10 @@ function islandora_themekey_is_member_of_collection() {
 EOQ;
           $connection = islandora_get_tuque_connection();
           $results = $connection->repository->ri->sparqlQuery($query, 1);
-          $collection_pid = $results[0]['collection']['value'];
-          return array($collection_pid);
+          foreach ($results as $result) {
+            $collection_pids[] = $result['collection']['value'];
+          }
+          return $collection_pids;
         }
         // If the object is a newspaper page, query the RI to get the
         // its ancestor collection.
@@ -69,8 +71,10 @@ EOQ;
 EOQ;
           $connection = islandora_get_tuque_connection();
           $results = $connection->repository->ri->sparqlQuery($query, 1);
-          $collection_pid = $results[0]['collection']['value'];
-          return array($collection_pid);
+          foreach ($results as $result) {
+            $collection_pids[] = $result['collection']['value'];
+          }
+          return $collection_pids;
         }
       }
     }
