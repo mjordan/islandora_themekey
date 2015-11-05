@@ -2,11 +2,11 @@
 
 Provides [ThemeKey](https://www.drupal.org/project/themekey) theme-switching rules for Islandora objects. In a nutshell, this module will change your site's theme based on attributes of Islandora objects. Rules based on the following attributes of Islandora objects are supported:
 
-* collection membership (using equals, not equals, contains, and not contains operators)
-* namespace (using equals, not equals, contains, not contains, regular expression, and not regular expression operators)
-* content model (using equals, not equals, contains, and not contains operators)
-
-Be aware that if an object is a member of multiple collections that are used in ThemeKey rules, the first rule in the theme switching chain will apply.
+* Collection membership (using equals, not equals, contains, and not contains operators)
+  * Rules are applied to pages of books, and to newspaper issues and pages.
+  * If an object is a member of multiple collections that are used in ThemeKey rules, the first rule in the theme switching chain will apply.
+* Namespace (using equals, not equals, contains, not contains, regular expression, and not regular expression operators)
+* Content model (using equals, not equals, contains, and not contains operators)
 
 ## Requirements
 
